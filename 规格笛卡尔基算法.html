@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<script src="jquery-3.3.1.js"></script>
+	<script>
+		
+		// var a = {};
+		var b = {'attr_key':{'1':'颜色','2':'内存','3':'尺码'},'attr_value':{'1':{'1':'银色','2':'黑色','3':'蓝色','4':'红色'},'2':{'5':'32G','6':'64G'},'3':{'8': "36码", '9': "37码", '10': "38码"}}};
+		// var data = [];
+		// a['arr1'] = {1: "银色", 2: "黑色", 3: "蓝色", 4: "红色"};
+		// a['arr2'] = {5: "32G", 6: "64G"};
+		// // a['arr3'] = {8: "36码", 9: "37码", 10: "38码", 11: "39码", 12: "40码", 13: "41码"};
+		// a['arr3'] = {8: "36码", 9: "37码", 10: "38码"};
+
+		// var a=['a','b','c'];
+		// var b=['d','e','f'];
+		
+		
+		function data_handle(data){
+			var mm =data.attr_value;
+			var res=[];
+			for(var i in mm){
+				res.push(mm[i]);
+			}
+			return had.apply(this,res);	
+			
+			function had(){
+				var args=arguments;
+				var ret=[];
+				for(var i=0;i<args.length;i++){
+					ret.push(args[i]);
+				}
+				return ret.reduce(function (a,b){
+					var ret=[];
+					for (var i in a) {
+						for (var j in b) {
+							var tmp=i+'_'+j;
+							ret[tmp]=a[i]+'_'+b[j];	
+						}		
+					}
+					return ret;
+				});
+			}
+		}
+		console.log(data_handle(b))
+		
+
+	</script>
+</body>
+</html>
